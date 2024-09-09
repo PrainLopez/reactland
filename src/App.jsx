@@ -24,7 +24,10 @@ export default function App() {
         <button onClick={() => setCount((count) => count + 2)}>
           count is {count}
         </button>
-        <button onClick={()=>{setSpin(1-spin)}}>switch react light</button>
+        <button 
+          onClick={()=>{setSpin(1-spin)}}
+          style={{ backgroundColor: "#555" }}
+        >switch react light</button>
         <p>
           Edit <code>src/App.jsx</code> and <code>src/main.jsx</code> and save
           to test HMR
