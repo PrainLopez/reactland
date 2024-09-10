@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import Title from "./Title";
 
 export default function App() {
   const spinMapping = ["logo", "logo react"];
@@ -19,6 +20,7 @@ export default function App() {
         </a>
       </div>
       <h1>Vite & React</h1>
+      <Title title="react js"/>
       <div className="card">
         <button onClick={() => setCount((count) => count + 2)}>
           count is {count}
