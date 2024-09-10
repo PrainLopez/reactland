@@ -4,3 +4,6 @@ a tutorial repo following vids from Dave Grey
 
 # However...
 create-react-app is dumped. I use Vite btw.
+
+# Things are getting out of hand...
+I try to skip out of just React and try [next.js](https://nextjs.org/docs) later.
