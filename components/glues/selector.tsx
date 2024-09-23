@@ -28,31 +28,36 @@ export default function Selector() {
       <DrawerTrigger asChild>
         <Button className="">Select Item</Button>
       </DrawerTrigger>
-      <DrawerContent className="border-neutral-600">
-        <div className="mx-auto w-full max-h-[60vh]">
-          <DrawerHeader>Items</DrawerHeader>
+      <DrawerContent className="border-neutral-700">
+        <div className="mx-auto w-full max-h-[75vh]">
+          <DrawerHeader></DrawerHeader>
           {itemGrid.map((cat) => (
-            <div key={cat.catName}>
-              <Card className="mx-auto w-auto max-w-sm">
-                <CardHeader>
-                  <CardTitle>{cat.catName}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {cat.content.map((item) => (
-                    <div key={item.name}>
-                      <Button>
-                        <Image
-                          src={item.src}
-                          alt={item.name}
-                          width={64}
-                          height={64}
-                        />
-                      </Button>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-            </div>
+            <Card
+              key={cat.catName}
+              className="border-amber-900 bg-amber-950 mx-auto w-auto max-w-sm "
+            >
+              <CardHeader>
+                <CardTitle className="mx-1 text-xl text-amber-500">
+                  {cat.catName}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {cat.content.map((item) => (
+                  <Button
+                    key={item.name}
+                    className="bg-neutral-400/50 hover:bg-neutral-500 w-[4.5rem] h-[4.5rem] m-[0.35rem]"
+                  >
+                    <Image
+                      className="absolute"
+                      src={item.src}
+                      alt={item.name}
+                      width={55}
+                      height={55}
+                    />
+                  </Button>
+                ))}
+              </CardContent>
+            </Card>
           ))}
         </div>
       </DrawerContent>
