@@ -22,20 +22,22 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import catList from "@/data/catList.json";
+import imageMap from "@/data/imageMap.json";
 
 // Types
-type contentItem = {
+type ContentItem = {
   name: string;
-  src: string;
 };
 
-type catItem = {
+type CatItem = {
   catName: string;
-  content: contentItem[];
+  content: ContentItem[];
 };
+
+const mapping: { [key: string]: string } = imageMap;
 
 // Component
-export default function Selector() {
+const Selector = function () {
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -43,21 +45,21 @@ export default function Selector() {
       </DrawerTrigger>
       <DrawerContent
         className="
-      border-neutral-700 
-      w-full max-h-[75vh] mx-auto
-      "
+        border-neutral-700 
+        w-full max-h-[75vh] mx-auto
+        "
       >
         <DrawerHeader></DrawerHeader>
         <ScrollArea className="h-full overflow-auto">
           <div className="mx-8 flex flex-wrap justify-evenly">
-            {catList.map((cat: catItem) => (
+            {catList.map((cat: CatItem) => (
               <Card
                 key={cat.catName}
                 className="
-                border-amber-900 bg-amber-950 
-                mx-2 my-1 
-                w-auto min-w-96 max-w-md
-                "
+              border-amber-900 bg-amber-950 
+              mx-2 my-1 
+              w-auto min-w-96 max-w-md
+              "
               >
                 <CardHeader>
                   <CardTitle className="mx-1.5 text-xl text-amber-500">
@@ -65,24 +67,24 @@ export default function Selector() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="grid grid-cols-4">
-                  {cat.content.map((item: contentItem) => (
+                  {cat.content.map((item: ContentItem) => (
                     <Button
                       key={item.name}
                       className="
-                      flex flex-col justify-center 
-                      overflow-hidden hover:overflow-visible 
-                      bg-neutral-400/50 hover:bg-neutral-500 
-                      w-[5rem] h-[7rem] p-0 m-1
-                      "
+                    flex flex-col justify-center 
+                    overflow-hidden hover:overflow-visible 
+                    bg-neutral-400/50 hover:bg-neutral-500 
+                    w-[5rem] h-[7rem] p-0 m-1
+                    "
                     >
                       <Image
                         className="m-1"
-                        src={item.src}
+                        src={mapping[item.name]}
                         alt={item.name}
                         width={60}
                         height={60}
                       />
-                      <span className="my-1">{item.name}</span>
+                      <span className="mt-1">{item.name}</span>
                     </Button>
                   ))}
                 </CardContent>
@@ -93,4 +95,6 @@ export default function Selector() {
       </DrawerContent>
     </Drawer>
   );
-}
+};
+
+export default Selector;
