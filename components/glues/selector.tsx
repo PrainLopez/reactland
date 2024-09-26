@@ -21,8 +21,20 @@ import {
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { itemGrid } from "@/components/data/itemList";
+import catList from "@/data/catList.json";
 
+// Types
+type contentItem = {
+  name: string;
+  src: string;
+};
+
+type catItem = {
+  catName: string;
+  content: contentItem[];
+};
+
+// Component
 export default function Selector() {
   return (
     <Drawer>
@@ -38,7 +50,7 @@ export default function Selector() {
         <DrawerHeader></DrawerHeader>
         <ScrollArea className="h-full overflow-auto">
           <div className="mx-8 flex flex-wrap justify-evenly">
-            {itemGrid.map((cat) => (
+            {catList.map((cat: catItem) => (
               <Card
                 key={cat.catName}
                 className="
@@ -53,7 +65,7 @@ export default function Selector() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="grid grid-cols-4">
-                  {cat.content.map((item) => (
+                  {cat.content.map((item: contentItem) => (
                     <Button
                       key={item.name}
                       className="
@@ -67,8 +79,8 @@ export default function Selector() {
                         className="m-1"
                         src={item.src}
                         alt={item.name}
-                        width={55}
-                        height={55}
+                        width={60}
+                        height={60}
                       />
                       <span className="my-1">{item.name}</span>
                     </Button>
