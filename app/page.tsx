@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Selector from "@/components/glues/selector";
+import ItemCombobox from "@/components/glues/ItemCombobox";
 
 export default function Home() {
   return (
@@ -33,6 +34,8 @@ export default function Home() {
             </Link>
           </Button>
           <Selector />
+          <ItemCombobox select="智能嵌板" />
+          <ItemCombobox select="" />
         </div>
       </main>
     </div>

@@ -22,7 +22,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import catList from "@/data/catList.json";
-import imageMap from "@/data/imageMap.json";
+import imageMapping from "@/data/imageMap.json";
 
 // Types
 type ContentItem = {
@@ -34,7 +34,7 @@ type CatItem = {
   content: ContentItem[];
 };
 
-const mapping: { [key: string]: string } = imageMap;
+const imageMap: { [key: string]: string } = imageMapping;
 
 // Component
 const Selector = function () {
@@ -79,7 +79,7 @@ const Selector = function () {
                     >
                       <Image
                         className="m-1"
-                        src={mapping[item.name]}
+                        src={imageMap[item.name]}
                         alt={item.name}
                         width={60}
                         height={60}
