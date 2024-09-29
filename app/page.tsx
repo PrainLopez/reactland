@@ -1,10 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import Selector from "@/components/glues/selector";
-import ItemCombobox from "@/components/glues/ItemCombobox";
+"use client";
 
-export default function Home() {
+import ItemCombobox from "@/components/glues/ItemCombobox";
+import { useState } from "react";
+
+const Home = function () {
+  const [inputSelect, setInputSelect] = useState("");
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -20,24 +20,14 @@ export default function Home() {
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <Button asChild className="">
-            <Link prefetch={false} href="http://oc.prain.space">
-              My Panel
-            </Link>
-          </Button>
-          <Button asChild className="">
-            <Link
-              prefetch={false}
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            >
-              Read our docs
-            </Link>
-          </Button>
-          <Selector />
-          <ItemCombobox select="智能嵌板" />
-          <ItemCombobox select="" />
+          <ItemCombobox
+            select={inputSelect}
+            setSelect={(i) => setInputSelect(i)}
+          />
         </div>
       </main>
     </div>
   );
-}
+};
+
+export default Home;

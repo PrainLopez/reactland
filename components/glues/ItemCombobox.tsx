@@ -22,6 +22,11 @@ import catList from "@/data/catList.json";
 import imageMapping from "@/data/imageMap.json";
 
 // Types
+type Props = {
+  select: string;
+  setSelect: Dispatch<SetStateAction<string>>;
+};
+
 type ContentItem = {
   name: string;
 };
@@ -32,11 +37,6 @@ type CatItem = {
 };
 
 const imageMap: { [key: string]: string } = imageMapping;
-
-type Props = {
-  select: string;
-  setSelect: Dispatch<SetStateAction<boolean>>;
-};
 
 const ItemCombobox = function ({ select, setSelect }: Props) {
   const [open, setOpen] = useState(false);
@@ -67,8 +67,8 @@ const ItemCombobox = function ({ select, setSelect }: Props) {
           <CaretSortIcon className="h-5 w-5 shrink-0" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="p-0">
-        <Command className="bg-blend-color-dodge">
+      <PopoverContent className="p-0 w-auto">
+        <Command>
           <CommandInput placeholder="搜索物品……" className="text-base " />
           <CommandList>
             <CommandEmpty className="text-base m-2 ml-4">
@@ -78,14 +78,22 @@ const ItemCombobox = function ({ select, setSelect }: Props) {
               <CommandGroup key={cat.catName} heading={cat.catName}>
                 {cat.content.map((item: ContentItem) => (
                   <CommandItem key={item.name}>
-                    <Image
-                      src={imageMap[item.name]}
-                      alt={item.name}
-                      height="32"
-                      width="32"
-                      className="h-8 w-8"
-                    />
-                    <span className="mx-2 text-base">{item.name}</span>
+                    <div
+                      className="w-full grid grid-cols-[auto_1fr] items-center"
+                      onClick={() => {
+                        setSelect(item.name);
+                        setOpen(false);
+                      }}
+                    >
+                      <Image
+                        src={imageMap[item.name]}
+                        alt={item.name}
+                        height="32"
+                        width="32"
+                        className="h-8 w-8"
+                      />
+                      <span className="mx-2 text-base">{item.name}</span>
+                    </div>
                   </CommandItem>
                 ))}
               </CommandGroup>
