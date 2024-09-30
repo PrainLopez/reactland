@@ -16,18 +16,20 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 import imageMapping from "@/data/imageMap.json";
 
+// Types
+const imageMap: { [key: string]: string } = imageMapping;
+
 const FactoryCreate = function () {
   const [prodSelect, setProdSelect] = useState("智能嵌板");
-
-  // Types
-  const imageMap: { [key: string]: string } = imageMapping;
 
   // Component
   return (
     <div>
       <Drawer>
         <DrawerTrigger asChild>
-          <Button className="">Add factory</Button>
+          <Button className="h-auto text-base" variant="outline">
+            Add factory
+          </Button>
         </DrawerTrigger>
         <DrawerContent
           className="

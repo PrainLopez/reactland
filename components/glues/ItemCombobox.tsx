@@ -45,7 +45,7 @@ const ItemCombobox = function ({ select, setSelect }: Props) {
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-          className="h-auto min-h-[50px]"
+          className="h-auto"
           variant="outline"
           role="combobox"
           aria-expanded={open}
