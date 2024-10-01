@@ -40,19 +40,19 @@ const FactoryCreate = function () {
         >
           <DrawerHeader></DrawerHeader>
           <ScrollArea className="h-full overflow-auto">
-            <div className="mx-4 mb-4 grid grid-cols-[auto_1fr] items-baseline">
-              <span className="mx-4 grid grid-cols-subgrid">模块产出</span>
-              <ItemCombobox
-                className="m-4 grid grid-cols-subgrid"
-                select={prodSelect}
-                setSelect={setProdSelect}
-              />
-              <span className="m-4 grid grid-cols-subgrid">模块消耗产物</span>
-              <ItemCombobox
-                className="m-4 grid grid-cols-subgrid"
-                select={prodSelect}
-                setSelect={setProdSelect}
-              />
+            <div className="mx-4 mb-4 grid grid-cols-[auto_1fr]">
+              <div className="grid col-[1_/_-1] grid-cols-subgrid">
+                <span className="m-2 grid self-center">模块产出</span>
+                <div className="grid w-full p-1">
+                  <ItemCombobox select={prodSelect} setSelect={setProdSelect} />
+                </div>
+              </div>
+              <div className="grid col-[1_/_-1] grid-cols-subgrid">
+                <span className="m-2 grid self-center">模块消耗产物</span>
+                <div className="grid w-full p-1">
+                  <ItemCombobox select={prodSelect} setSelect={setProdSelect} />
+                </div>
+              </div>
             </div>
           </ScrollArea>
         </DrawerContent>
