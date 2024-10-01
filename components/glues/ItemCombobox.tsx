@@ -39,14 +39,14 @@ type CatItem = {
 
 const imageMap: { [key: string]: string } = imageMapping;
 
-const ItemCombobox = function ({ select, setSelect, className }: Props) {
+const ItemCombobox = function ({ select, setSelect }: Props) {
   const [open, setOpen] = useState(false);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-          className="h-auto"
+          className={"h-auto"}
           variant="outline"
           role="combobox"
           aria-expanded={open}
