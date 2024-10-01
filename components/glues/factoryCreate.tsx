@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Input } from "@/components/ui/input";
 
 import imageMapping from "@/data/imageMap.json";
 import ItemCombobox from "./ItemCombobox";
@@ -40,14 +41,28 @@ const FactoryCreate = function () {
         >
           <DrawerHeader></DrawerHeader>
           <ScrollArea className="h-full overflow-auto">
-            <div className="mx-4 mb-4 grid grid-cols-[auto_1fr] gap-2">
+            <div className="mx-4 mb-4 grid grid-cols-[auto_3fr_1fr] gap-2">
               <div className="grid col-[1_/_-1] grid-cols-subgrid">
                 <span className="m-2 grid self-center">模块产出</span>
                 <ItemCombobox select={prodSelect} setSelect={setProdSelect} />
+                <Input
+                  type="number"
+                  value={0}
+                  min={0}
+                  max={1000000}
+                  className="h-auto w-auto"
+                />
               </div>
               <div className="grid col-[1_/_-1] grid-cols-subgrid">
                 <span className="m-2 grid self-center">模块消耗产物</span>
                 <ItemCombobox select={prodSelect} setSelect={setProdSelect} />
+                <Input
+                  type="number"
+                  value={0}
+                  min={0}
+                  max={1000000}
+                  className="h-auto w-auto"
+                />
               </div>
             </div>
           </ScrollArea>
