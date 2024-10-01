@@ -25,6 +25,7 @@ import imageMapping from "@/data/imageMap.json";
 type Props = {
   select: string;
   setSelect: Dispatch<SetStateAction<string>>;
+  className?: string;
 };
 
 type ContentItem = {
@@ -38,7 +39,7 @@ type CatItem = {
 
 const imageMap: { [key: string]: string } = imageMapping;
 
-const ItemCombobox = function ({ select, setSelect }: Props) {
+const ItemCombobox = function ({ select, setSelect, className }: Props) {
   const [open, setOpen] = useState(false);
 
   return (

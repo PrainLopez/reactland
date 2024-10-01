@@ -15,12 +15,13 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import imageMapping from "@/data/imageMap.json";
+import ItemCombobox from "./ItemCombobox";
 
 // Types
 const imageMap: { [key: string]: string } = imageMapping;
 
 const FactoryCreate = function () {
-  const [prodSelect, setProdSelect] = useState("智能嵌板");
+  const [prodSelect, setProdSelect] = useState("");
 
   // Component
   return (
@@ -28,7 +29,7 @@ const FactoryCreate = function () {
       <Drawer>
         <DrawerTrigger asChild>
           <Button className="h-auto text-base" variant="outline">
-            Add factory
+            添加模块...
           </Button>
         </DrawerTrigger>
         <DrawerContent
@@ -38,7 +39,22 @@ const FactoryCreate = function () {
         "
         >
           <DrawerHeader></DrawerHeader>
-          <ScrollArea className="h-full overflow-auto"></ScrollArea>
+          <ScrollArea className="h-full overflow-auto">
+            <div className="mx-4 mb-4 grid grid-cols-[auto_1fr] items-baseline">
+              <span className="mx-4 grid grid-cols-subgrid">模块产出</span>
+              <ItemCombobox
+                className="m-4 grid grid-cols-subgrid"
+                select={prodSelect}
+                setSelect={setProdSelect}
+              />
+              <span className="m-4 grid grid-cols-subgrid">模块消耗产物</span>
+              <ItemCombobox
+                className="m-4 grid grid-cols-subgrid"
+                select={prodSelect}
+                setSelect={setProdSelect}
+              />
+            </div>
+          </ScrollArea>
         </DrawerContent>
       </Drawer>
     </div>
