@@ -14,7 +14,7 @@ import {
   PopoverTrigger
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
-import { CaretSortIcon } from "@radix-ui/react-icons";
+import { ChevronsUpDown } from "lucide-react";
 import Image from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
 
@@ -65,7 +65,7 @@ const ItemCombobox = function ({ select, setSelect }: Props) {
           ) : (
             <span className="mx-2 text-base">选择物品……</span>
           )}
-          <CaretSortIcon className="h-5 w-5 shrink-0" />
+          <ChevronsUpDown className="h-5 w-5 shrink-0" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="p-0 w-auto">
